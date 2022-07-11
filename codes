@@ -1,0 +1,6 @@
+local codes = {
+  'FIREWORKS',
+  'DHSUPRISE!',
+}
+
+return codes
