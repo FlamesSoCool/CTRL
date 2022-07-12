@@ -64,48 +64,6 @@ commands.ad_message = function(ad)
     game:GetService('ReplicatedStorage'):FindFirstChild('DefaultChatSystemChatEvents').SayMessageRequest:FireServer(ad, "All")
 end
 
-commands.bring = function(Target, cmd)
-            wait(0.5)
-            repeat wait() until game.Players[Target].Character and game.Players[Target].Character:FindFirstChild("BodyEffects") do end
-            if not game:GetService("Players")[Target].Character.BodyEffects["K.O"].Value then
-                repeat wait() 
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[Target].Character.UpperTorso.CFrame.X, game.Players[Target].Character.UpperTorso.CFrame.Y - 5, game.Players[Target].Character.UpperTorso.CFrame.Z)
-                    game:GetService("Players").LocalPlayer.Character['[Knife]']:Activate()
-                    wait()
-                until game:GetService("Players")[Target].Character.BodyEffects["K.O"].Value or not bring do end 
-                if not bring then
-                    game:GetService("Players").LocalPlayer.Character.PrimaryPart.CFrame = CFrame.new(OldPos.X, OldPos.Y, OldPos.Z)
-                end
-            end
-            wait(0.2)
-            repeat
-                if game:GetService("Players").LocalPlayer.Character.BodyEffects.Grabbed.Value ~= nil then break end
-                wait()
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players[Target].Character.UpperTorso.CFrame.X, game.Players[Target].Character.UpperTorso.CFrame.Y + 1,game.Players[Target].Character.UpperTorso.CFrame.Z)
-                wait(0.2)
-                game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false); wait(0.5); 
-            until game:GetService("Players").LocalPlayer.Character.BodyEffects.Grabbed.Value ~= nil or game:GetService("Players").LocalPlayer.Character.BodyEffects.Grabbed.Value == Target or not bring do end
-            if not bring then
-                game:GetService("Players").LocalPlayer.Character.PrimaryPart.CFrame = CFrame.new(OldPos.X, OldPos.Y, OldPos.Z)
-            end
-            wait(0.2)
-            if cmd[3] and string.lower(cmd[3]) == 'admin' then
-                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-872.091, -32.6512, -652.487)
-            elseif cmd[3] and string.lower(cmd[3]) == 'bank' then
-                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-431.823, 39.189, -297.694)
-            elseif cmd[3] and string.lower(cmd[3]) == 'train' then
-                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(616.1475830078125, 48.224830627441406,-95.18014526367188)
-            else
-                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Players")[game.Players:GetNameFromUserIdAsync(getgenv().Host)].Character.HumanoidRootPart.CFrame.X, game:GetService("Players")[game.Players:GetNameFromUserIdAsync(getgenv().Host)].Character.HumanoidRootPart.CFrame.Y, game:GetService("Players")[game.Players:GetNameFromUserIdAsync(getgenv().Host)].Character.HumanoidRootPart.CFrame.Z)
-            end
-            wait(1)
-            game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false); 
-            wait(0.5)
-            game:GetService("Players").LocalPlayer.Character.PrimaryPart.CFrame = CFrame.new(OldPos.X, OldPos.Y, OldPos.Z)
-            wait()
-      bring = false
-end
-
 commands.say = function(message, prefix)
     local sayString = tostring(string.gsub(message, (prefix.."say"), ""))
     game:GetService('ReplicatedStorage'):FindFirstChild('DefaultChatSystemChatEvents').SayMessageRequest:FireServer(sayString, "All")
