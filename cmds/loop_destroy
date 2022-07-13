@@ -1,0 +1,15 @@
+local commands = {}
+
+commands.loopdestroy = function()
+    for i,v in pairs(game:GetService("Workspace").Ignored.Drop:GetChildren()) do
+        if v.Name == 'MoneyDrop' then
+            pcall(function()
+                v.Transparency = 1
+                v.Decal:remove()
+                v.BillboardGui.Enabled = false
+            end)
+        end
+    end
+end
+
+return commands
