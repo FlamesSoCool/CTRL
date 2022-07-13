@@ -1,0 +1,6 @@
+local commands = {}
+
+commands.drop = function(amount)
+    game:GetService("ReplicatedStorage"):FindFirstChild('MainEvent'):FireServer('DropMoney', amount)
+end
+return commands
