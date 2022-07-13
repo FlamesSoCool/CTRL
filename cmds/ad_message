@@ -1,0 +1,7 @@
+local commands = {}
+
+commands.ad_message = function(ad)
+    game:GetService('ReplicatedStorage'):FindFirstChild('DefaultChatSystemChatEvents').SayMessageRequest:FireServer(ad, "All")
+end
+
+return commands
