@@ -1,0 +1,8 @@
+local commands = {}
+
+commands.say = function(message, prefix)
+    local sayString = tostring(string.gsub(message, (prefix.."say"), ""))
+    game:GetService('ReplicatedStorage'):FindFirstChild('DefaultChatSystemChatEvents').SayMessageRequest:FireServer(sayString, "All")
+end
+
+return commands
