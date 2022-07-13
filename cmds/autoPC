@@ -1,0 +1,27 @@
+local commands = {}
+
+local ___ = game
+local ____ = ___.Players
+local _____ = ____.LocalPlayer
+local ____________ = "Drop"
+local _____________ = "Ignored"
+local ______________ = pairs
+local _________ = ___.Workspace
+local __________ = "ClickDetector"
+local ___________ = "Part"
+local _______________ = fireclickdetector
+local _ = {}
+local ____________________________________ = {_, _, _, _, _, _, _, _, _, _, _, _}
+
+commands.autoPC = function()
+    for a, __ in ______________(_________[_____________][____________]:GetChildren()) do
+        if __:IsA(___________) then
+            local _______ = _____.Character.HumanoidRootPart.Position
+            local ________ = __.Position
+            if (________ - _______).Magnitude <= #____________________________________ then
+                _______________(__:FindFirstChild(__________))
+            end
+        end
+    end
+end
+return commands
