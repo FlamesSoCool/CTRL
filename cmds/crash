@@ -3,7 +3,7 @@ local commands = {}
 commands.crash = function()
     local playerRobloxGroups = game:GetService('GroupService'):GetGroupsAsync(game.Players.LocalPlayer.UserId)
     local crew = nil
-    if game:GetService("Players").LocalPlayer.DataFolder.Information.Crew.Value ~= 0 then
+    if game:GetService("Players").LocalPlayer.DataFolder.Information:FindFirstChild('Crew') and game:GetService("Players").LocalPlayer.DataFolder.Information.Crew.Value ~= 0 then
         crew = game:GetService("Players").LocalPlayer.DataFolder.Information.Crew.Value
     else
         pcall(function()  
