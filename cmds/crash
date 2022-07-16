@@ -33,6 +33,8 @@ commands.crash = function()
             game:GetService("ReplicatedStorage").MainEvent:FireServer("JoinCrew", crew);
             for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do v.Parent = game.Players.LocalPlayer.Character end
                 if #game:GetService("Players").LocalPlayer.Character:GetChildren() > 1500 then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,10,0)
+                    wait(0.2)
                     game.Players.LocalPlayer.Character.Head:Destroy()
                     game.Players.LocalPlayer.Character.RightHand:Destroy()
                     game.Players.LocalPlayer.Character.LeftHand:Destroy()
