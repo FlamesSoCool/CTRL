@@ -28,10 +28,9 @@ commands.crash = function()
     
     while wait() do
         coroutine.wrap(function()
-            game:GetService("ReplicatedStorage").MainEvent:FireServer("JoinCrew", crew);
-            game:GetService("ReplicatedStorage").MainEvent:FireServer("JoinCrew", crew);
-            game:GetService("ReplicatedStorage").MainEvent:FireServer("JoinCrew", crew);
-            game:GetService("ReplicatedStorage").MainEvent:FireServer("JoinCrew", crew);
+            for i=1, 4 do
+                game:GetService("ReplicatedStorage").MainEvent:FireServer("JoinCrew", crew);
+            end
             for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do v.Parent = game.Players.LocalPlayer.Character end
                 if #game:GetService("Players").LocalPlayer.Character:GetChildren() > 1500 then
                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,10,0)
