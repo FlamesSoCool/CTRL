@@ -37,7 +37,7 @@ commands.setup = function(locations, cmd)
         __________________________________(
             function()
                 local ____________________ = #_
-                for a, ___________________________ in ______________(_________________________________) do
+                for a, ___________________________ in ______________(_________________________________) do spawn(function()
                     if commands.getPlrWID(___________________________) then
                         ____________________ = ____________________ + #_____________________________________
                         local __________________________________ =
@@ -59,7 +59,7 @@ commands.setup = function(locations, cmd)
                         commands.getPlrWID(___________________________).Character.HumanoidRootPart.Anchored =
                             _________________________
                     end
-                end
+                end) end
             end
         )
         wait()
